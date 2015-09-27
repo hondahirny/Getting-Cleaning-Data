@@ -1,25 +1,25 @@
 run_analysis <- function() {
     
     message("Function running...")
-    actlabels <- read.table("UCI HAR Dataset/activity_labels.txt")  ##Reads in lookup table for activity #'s and their descriptions.    
+    actlabels <- read.table("activity_labels.txt")  ##Reads in lookup table for activity #'s and their descriptions.    
     names(actlabels) <- c("Activity Number","Activity Description") ##assigns columns names.
     
-    testX <- read.table("UCI HAR Dataset/test/X_test.txt") ##these four lines combine the test data into one data frame.
-    testY <- read.table("UCI HAR Dataset/test/y_test.txt")
-    testsubj <- read.table("UCI HAR Dataset/test/subject_test.txt")
+    testX <- read.table("X_test.txt") ##these four lines combine the test data into one data frame.
+    testY <- read.table("y_test.txt")
+    testsubj <- read.table("subject_test.txt")
     test <- cbind(testX, testY, testsubj)
     
     message("~30% done importing data.")
     
-    trainX <- read.table("UCI HAR Dataset/train/X_train.txt") ##these four lines combine the train data into one data frame.
-    trainY <- read.table("UCI HAR Dataset/train/y_train.txt")
-    trainsubj <- read.table("UCI HAR Dataset/train/subject_train.txt")
+    trainX <- read.table("X_train.txt") ##these four lines combine the train data into one data frame.
+    trainY <- read.table("y_train.txt")
+    trainsubj <- read.table("subject_train.txt")
     train <- cbind(trainX, trainY, trainsubj)
 
     totalset <- rbind(test,train) ##complete data set created from both test and train data.
     message("All data imported.")
     
-    columnnamestable <- read.table("UCI HAR Dataset/features.txt") ##these four lines obtain and write column names for all data.
+    columnnamestable <- read.table("features.txt") ##these four lines obtain and write column names for all data.
     columnnames <- columnnamestable[,2]
     names(totalset) <- columnnames
     names(totalset)[562:563] <- c("Activity","Subject")
