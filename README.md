@@ -15,7 +15,7 @@ Script Description of run_analysis.R
 This R script takes a variety of text files, which contain data on:
 * 79 different values, collected from cell phone accelerometer data.  The means of this data
 	are included in "courseproject.txt" and are sorted by activity type and subject.
-* "Subject" data, which identifies the individual being evaluated, using a number (no names)
-* "Activity" data, which identifies what a subject was doing when data was collected.
+* "Subject" data (column 2), which identifies the individual being evaluated, using a number (no names)
+* "Activity" data (column 1), which identifies what a subject was doing when data was collected.
 
 For line-by-line descriptions of the function, see the run_analysis.R file.
